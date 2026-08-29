@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guadalajara → Coimbatore — Diwali 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg-deep:#122019;
+  --bg-panel:#1a2c22;
+  --bg-panel-2:#203528;
+  --parchment:#f1e8d6;
+  --parchment-dim:#c9c0ab;
+  --muted:#8fa091;
+  --marigold:#d99a34;
+  --marigold-dim:#8a6a2e;
+  --terracotta:#c1552e;
+  --jacaranda:#8574b8;
+  --border:rgba(241,232,214,0.12);
+  --border-soft:rgba(241,232,214,0.07);
+  --radius:14px;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg-deep);
+  color:var(--parchment);
+  font-family:'Inter',sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+
+::selection{background:var(--marigold);color:#14231b;}
+
+a{color:var(--marigold);}
+
+.wrap{
+  max-width:920px;
+  margin:0 auto;
+  padding:0 24px 120px;
+  position:relative;
+}
+
+/* ---------- thread (signature element) ---------- */
+.thread{
+  position:absolute;
+  left:12px;
+  top:0;
+  bottom:80px;
+  width:2px;
+  background-image:linear-gradient(var(--marigold-dim) 55%, transparent 0%);
+  background-size:2px 12px;
+  background-repeat:repeat-y;
+  opacity:0.55;
+}
+@media (max-width:720px){ .thread{ display:none; } }
+
+section{
+  position:relative;
+  padding-left:40px;
+}
+@media (max-width:720px){ section{ padding-left:0; } }
+
+.dot{
+  position:absolute;
+  left:5px;
+  top:6px;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:var(--bg-deep);
+  border:2px solid var(--marigold);
+}
+@media (max-width:720px){ .dot{ display:none; } }
+
+/* ---------- hero ---------- */
+.hero{
+  padding:64px 0 40px 40px;
+  border-bottom:1px solid var(--border-soft);
+}
+@media (max-width:720px){ .hero{ padding-left:0; } }
+
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+}
+.eyebrow .city{color:var(--jacaranda);}
+.eyebrow .city.dest{color:var(--terracotta);}
+.eyebrow .arrow{color:var(--marigold-dim);}
+
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  font-size:clamp(34px,5.2vw,54px);
+  line-height:1.05;
+  margin:0 0 28px;
+  max-width:14ch;
+}
+.hero h1 em{
+  font-style:italic;
+  font-weight:300;
+  color:var(--marigold);
+}
+
+.countdowns{
+  display:flex;
+  gap:48px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+.cd{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.cd .num{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:clamp(48px,8vw,72px);
+  line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.cd.diwali .num{color:var(--marigold);}
+.cd.departure .num{color:var(--parchment);}
+.cd .label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.cd .sub{
+  font-size:13px;
+  color:var(--parchment-dim);
+}
+
+.date-set{
+  margin-top:24px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.date-set label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+.date-set input[type="date"]{
+  background:var(--bg-panel);
+  border:1px solid var(--border);
+  color:var(--parchment);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:13px;
+  padding:8px 10px;
+  border-radius:8px;
+}
+.date-set input[type="date"]:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible{
+  outline:2px solid var(--marigold);
+  outline-offset:2px;
+}
+
+/* ---------- generic section chrome ---------- */
+.sec{
+  padding:52px 0 8px 40px;
+}
+@media (max-width:720px){ .sec{ padding-left:0; } }
+
+.sec-head{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  margin-bottom:22px;
+}
+.sec-head .idx{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  color:var(--marigold-dim);
+}
+.sec-head h2{
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  font-size:24px;
+  margin:0;
+}
+.sec-desc{
+  color:var(--parchment-dim);
+  font-size:14px;
+  max-width:60ch;
+  margin:-8px 0 24px;
+}
+
+/* ---------- weather ---------- */
+.weather-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+@media (max-width:560px){ .weather-grid{ grid-template-columns:1fr; } }
+
+.wcard{
+  background:var(--bg-panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:22px;
+}
+.wcard.gdl{ border-top:3px solid var(--jacaranda); }
+.wcard.cbe{ border-top:3px solid var(--terracotta); }
+.wcard h3{
+  font-family:'Fraunces',serif;
+  font-weight:500;
+  font-size:18px;
+  margin:0 0 4px;
+}
+.wcard .tag{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  margin-bottom:16px;
+  display:block;
+}
+.wrow{
+  display:flex;
+  justify-content:space-between;
+  padding:9px 0;
+  border-top:1px solid var(--border-soft);
+  font-size:13.5px;
+}
+.wrow:first-of-type{ border-top:none; }
+.wrow .k{ color:var(--parchment-dim); }
+.wrow .v{ font-family:'IBM Plex Mono',monospace; }
+.wnote{
+  margin-top:16px;
+  font-size:12.5px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+/* ---------- logistics ---------- */
+.logi-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+@media (max-width:560px){ .logi-grid{ grid-template-columns:1fr; } }
+.lcard{
+  background:var(--bg-panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px 22px;
+}
+.lcard h4{
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:14px;
+  margin:0 0 10px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.lcard p{
+  font-size:13px;
+  color:var(--parchment-dim);
+  margin:0 0 10px;
+}
+.plug-compare{
+  display:flex;
+  gap:18px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  margin-top:10px;
+}
+.plug-compare div{ flex:1; }
+.plug-compare .city{ color:var(--muted); display:block; margin-bottom:3px; text-transform:uppercase; letter-spacing:0.04em;}
+.plug-compare .val{ color:var(--parchment); font-size:14px; }
+
+/* ---------- checklist (shared pattern) ---------- */
+.check-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.check-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:9px 0;
+  border-top:1px solid var(--border-soft);
+  font-size:13.5px;
+}
+.check-list li:first-child{ border-top:none; }
+.check-list input[type="checkbox"]{
+  appearance:none;
+  width:16px;
+  height:16px;
+  min-width:16px;
+  margin-top:2px;
+  border:1.5px solid var(--marigold-dim);
+  border-radius:4px;
+  background:transparent;
+  cursor:pointer;
+  position:relative;
+}
+.check-list input[type="checkbox"]:checked{
+  background:var(--marigold);
+  border-color:var(--marigold);
+}
+.check-list input[type="checkbox"]:checked::after{
+  content:"";
+  position:absolute;
+  left:4px;
+  top:0.5px;
+  width:4px;
+  height:8px;
+  border:solid #14231b;
+  border-width:0 2px 2px 0;
+  transform:rotate(45deg);
+}
+.check-list label{
+  cursor:pointer;
+  flex:1;
+}
+.check-list li.done label{
+  color:var(--muted);
+  text-decoration:line-through;
+  text-decoration-color:var(--border);
+}
+
+/* ---------- gift list ---------- */
+.gift-table{
+  width:100%;
+  border-collapse:collapse;
+}
+.gift-table th{
+  text-align:left;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  color:var(--muted);
+  font-weight:500;
+  padding:0 10px 10px 0;
+  border-bottom:1px solid var(--border);
+}
+.gift-table td{
+  padding:10px 10px 10px 0;
+  border-bottom:1px solid var(--border-soft);
+  vertical-align:top;
+}
+.gift-table input[type="text"]{
+  width:100%;
+  background:transparent;
+  border:none;
+  border-bottom:1px dashed transparent;
+  color:var(--parchment);
+  font-family:'Inter',sans-serif;
+  font-size:13.5px;
+  padding:4px 2px;
+}
+.gift-table input[type="text"]:hover{ border-bottom-color:var(--border); }
+.gift-table input[type="text"]:focus{ border-bottom-color:var(--marigold); outline:none; }
+.gift-table .rm{
+  background:none;
+  border:none;
+  color:var(--muted);
+  cursor:pointer;
+  font-size:16px;
+  line-height:1;
+  padding:4px;
+}
+.gift-table .rm:hover{ color:var(--terracotta); }
+.gift-table .gcheck{ text-align:center; width:36px; }
+
+.add-row{
+  margin-top:14px;
+  background:none;
+  border:1px dashed var(--border);
+  color:var(--parchment-dim);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.add-row:hover{ border-color:var(--marigold-dim); color:var(--parchment); }
+
+/* ---------- packing tabs ---------- */
+.tabs{
+  display:flex;
+  gap:4px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+  border-bottom:1px solid var(--border);
+}
+.tab{
+  background:none;
+  border:none;
+  color:var(--muted);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  padding:9px 14px;
+  cursor:pointer;
+  border-bottom:2px solid transparent;
+  margin-bottom:-1px;
+}
+.tab.active{
+  color:var(--marigold);
+  border-bottom-color:var(--marigold);
+}
+.tab .count{
+  font-size:10px;
+  color:var(--muted);
+  margin-left:4px;
+}
+.pack-panel{ display:none; }
+.pack-panel.active{ display:block; }
+
+.progress-bar{
+  height:4px;
+  background:var(--border);
+  border-radius:2px;
+  overflow:hidden;
+  margin-bottom:24px;
+}
+.progress-fill{
+  height:100%;
+  background:var(--marigold);
+  transition:width 0.3s ease;
+}
+.progress-text{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+
+footer{
+  padding:60px 0 0 40px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  color:var(--muted);
+}
+@media (max-width:720px){ footer{ padding-left:0; } }
+
+.save-note{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  background:var(--bg-panel-2);
+  border:1px solid var(--border);
+  color:var(--parchment-dim);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  padding:8px 14px;
+  border-radius:20px;
+  opacity:0;
+  transform:translateY(6px);
+  transition:opacity 0.25s ease, transform 0.25s ease;
+  pointer-events:none;
+}
+.save-note.show{ opacity:1; transform:translateY(0); }
+
+@media (prefers-reduced-motion:reduce){
+  *{ transition:none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="thread" aria-hidden="true"></div>
+
+  <div class="hero">
+    <div class="eyebrow">
+      <span class="city">Guadalajara</span>
+      <span class="arrow">·······✈·······</span>
+      <span class="city dest">Coimbatore</span>
+    </div>
+    <h1>The journey to <em>Diwali</em>, tracked.</h1>
+
+    <div class="countdowns">
+      <div class="cd diwali">
+        <span class="num" id="diwaliNum">—</span>
+        <span class="label">Days to Diwali</span>
+        <span class="sub">Sunday, November 8, 2026</span>
+      </div>
+      <div class="cd departure">
+        <span class="num" id="departNum">—</span>
+        <span class="label">Days to departure</span>
+        <span class="sub" id="departSub">Set your flight date below</span>
+      </div>
+    </div>
+
+    <div class="date-set">
+      <label for="departureInput">Departure date</label>
+      <input type="date" id="departureInput">
+    </div>
+  </div>
+
+  <!-- WEATHER -->
+  <section class="sec">
+    <div class="dot"></div>
+    <div class="sec-head"><span class="idx">01</span><h2>Weather delta</h2></div>
+    <p class="sec-desc">What the suitcase actually needs to plan for — early-to-mid November, both ends.</p>
+
+    <div class="weather-grid">
+      <div class="wcard gdl">
+        <h3>Guadalajara</h3>
+        <span class="tag">Dry season</span>
+        <div class="wrow"><span class="k">Day high</span><span class="v">26–28°C</span></div>
+        <div class="wrow"><span class="k">Night low</span><span class="v">11–14°C</span></div>
+        <div class="wrow"><span class="k">Humidity</span><span class="v">Low</span></div>
+        <div class="wrow"><span class="k">Rain</span><span class="v">Rare</span></div>
+        <div class="wnote">Mild days, cool evenings — a light layer for the airport and mornings.</div>
+      </div>
+      <div class="wcard cbe">
+        <h3>Coimbatore</h3>
+        <span class="tag">Post-monsoon</span>
+        <div class="wrow"><span class="k">Day high</span><span class="v">30–32°C</span></div>
+        <div class="wrow"><span class="k">Night low</span><span class="v">21–23°C</span></div>
+        <div class="wrow"><span class="k">Humidity</span><span class="v">High</span></div>
+        <div class="wrow"><span class="k">Rain</span><span class="v">Possible showers</span></div>
+        <div class="wnote">Warm and humid throughout — breathable fabrics, and a compact umbrella just in case.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGISTICS -->
+  <section class="sec">
+    <div class="dot"></div>
+    <div class="sec-head"><span class="idx">02</span><h2>Logistics</h2></div>
+    <p class="sec-desc">The details that are easy to forget until you're standing at an outlet with the wrong plug.</p>
+
+    <div class="logi-grid">
+      <div class="lcard">
+        <h4>⚡ Power</h4>
+        <p>Mexico and India don't share voltage, frequency, or plug shape. Anything without dual-voltage support needs a converter, not just an adapter.</p>
+        <div class="plug-compare">
+          <div><span class="city">Guadalajara</span><span class="val">127V · 60Hz · Type A/B</span></div>
+          <div><span class="city">Coimbatore</span><span class="val">230V · 50Hz · Type C/D/M</span></div>
+        </div>
+      </div>
+      <div class="lcard">
+        <h4>📶 Connectivity</h4>
+        <p>Decide roaming vs. local SIM before landing — Coimbatore airport SIM counters can have long queues around festival season.</p>
+      </div>
+    </div>
+
+    <ul class="check-list" id="logiList" style="margin-top:16px;"></ul>
+  </section>
+
+  <!-- GIFTS -->
+  <section class="sec">
+    <div class="dot"></div>
+    <div class="sec-head"><span class="idx">03</span><h2>Gifts for family</h2></div>
+    <p class="sec-desc">One line per person — what they'd like, and whether it's sorted.</p>
+
+    <table class="gift-table">
+      <thead>
+        <tr>
+          <th class="gcheck">✓</th>
+          <th>Person</th>
+          <th>Gift idea</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="giftBody"></tbody>
+    </table>
+    <button class="add-row" id="addGift">+ add person</button>
+  </section>
+
+  <!-- PACKING -->
+  <section class="sec">
+    <div class="dot"></div>
+    <div class="sec-head"><span class="idx">04</span><h2>Packing checklist</h2></div>
+    <p class="sec-desc">Grouped by category. Progress is saved as you go.</p>
+
+    <div class="progress-text" id="progressText">0 of 0 packed</div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+
+    <div class="tabs" id="packTabs"></div>
+    <div id="packPanels"></div>
+  </section>
+
+  <footer>Suvadi Labs — travel companion · built for the Guadalajara ↔ Coimbatore route</footer>
+</div>
+
+<div class="save-note" id="saveNote">Saved</div>
+
+<script>
+(function(){
+  const DIWALI = new Date('2026-11-08T00:00:00');
+
+  const defaultState = {
+    departureDate: '',
+    logi: {
+      'visa-checked': false,
+      'flight-booked': false,
+      'sim-plan': false,
+      'converter-packed': false,
+      'travel-insurance': false,
+      'itinerary-shared': false
+    },
+    gifts: [
+      { person: 'Kalaiyarasi (Amma)', idea: '', done: false }
+    ],
+    pack: {
+      documents: [
+        { label:'Passport + photocopy', done:false },
+        { label:'Visa printout', done:false },
+        { label:'Flight tickets / boarding passes', done:false },
+        { label:'Travel insurance details', done:false },
+        { label:'ID / driver license', done:false }
+      ],
+      electronics: [
+        { label:'Voltage converter (127V ↔ 230V)', done:false },
+        { label:'Type C/D/M plug adapter', done:false },
+        { label:'Phone + charger', done:false },
+        { label:'Power bank', done:false },
+        { label:'Camera / accessories', done:false }
+      ],
+      clothing: [
+        { label:'Light layers for Guadalajara mornings', done:false },
+        { label:'Breathable fabrics for Coimbatore heat', done:false },
+        { label:'Comfortable walking shoes', done:false },
+        { label:'Compact umbrella', done:false }
+      ],
+      festival: [
+        { label:'New clothes for Diwali', done:false },
+        { label:'Jewelry / accessories', done:false },
+        { label:'Gifts (see list above)', done:false },
+        { label:'Diyas or festival items to bring back', done:false }
+      ],
+      toiletries: [
+        { label:'Toiletry kit', done:false },
+        { label:'Sunscreen', done:false },
+        { label:'Any prescription medication', done:false },
+        { label:'Mosquito repellent', done:false }
+      ],
+      misc: [
+        { label:'Empty bag space for the return trip', done:false },
+        { label:'Snacks for the flight', done:false },
+        { label:'Entertainment for layovers', done:false }
+      ]
+    }
+  };
+
+  const LOGI_LABELS = {
+    'visa-checked': 'Visa / entry requirements checked',
+    'flight-booked': 'Flights booked',
+    'sim-plan': 'SIM or roaming plan decided',
+    'converter-packed': 'Voltage converter sourced',
+    'travel-insurance': 'Travel insurance sorted',
+    'itinerary-shared': 'Itinerary shared with family'
+  };
+
+  const PACK_TABS = [
+    { key:'documents', label:'Documents' },
+    { key:'electronics', label:'Electronics' },
+    { key:'clothing', label:'Clothing' },
+    { key:'festival', label:'Festival' },
+    { key:'toiletries', label:'Toiletries' },
+    { key:'misc', label:'Misc' }
+  ];
+
+  let state = JSON.parse(JSON.stringify(defaultState));
+  const STORAGE_KEY = 'india-trip-planner-state';
+
+  async function loadState(){
+    try{
+      const res = await window.storage.get(STORAGE_KEY, false);
+      if(res && res.value){
+        const saved = JSON.parse(res.value);
+        state = Object.assign({}, defaultState, saved);
+        if(!state.pack) state.pack = defaultState.pack;
+        if(!state.gifts || !state.gifts.length) state.gifts = defaultState.gifts;
+        if(!state.logi) state.logi = defaultState.logi;
+      }
+    }catch(e){
+      // no saved state yet — use defaults
+    }
+    render();
+  }
+
+  let saveTimeout;
+  function saveState(){
+    clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(async ()=>{
+      try{
+        await window.storage.set(STORAGE_KEY, JSON.stringify(state), false);
+        flashSaved();
+      }catch(e){
+        console.error('Storage error', e);
+      }
+    }, 300);
+  }
+
+  function flashSaved(){
+    const el = document.getElementById('saveNote');
+    el.classList.add('show');
+    clearTimeout(flashSaved._t);
+    flashSaved._t = setTimeout(()=> el.classList.remove('show'), 1200);
+  }
+
+  function daysUntil(dateObj){
+    const now = new Date();
+    const a = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const b = new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate());
+    return Math.round((b - a) / 86400000);
+  }
+
+  function renderCountdowns(){
+    const d = daysUntil(DIWALI);
+    document.getElementById('diwaliNum').textContent = d >= 0 ? d : '—';
+
+    const input = document.getElementById('departureInput');
+    input.value = state.departureDate || '';
+
+    if(state.departureDate){
+      const dep = new Date(state.departureDate + 'T00:00:00');
+      const dd = daysUntil(dep);
+      document.getElementById('departNum').textContent = dd >= 0 ? dd : 'Departed';
+      document.getElementById('departSub').textContent = dep.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+    } else {
+      document.getElementById('departNum').textContent = '—';
+      document.getElementById('departSub').textContent = 'Set your flight date below';
+    }
+  }
+
+  function renderLogi(){
+    const ul = document.getElementById('logiList');
+    ul.innerHTML = '';
+    Object.keys(LOGI_LABELS).forEach(key=>{
+      const li = document.createElement('li');
+      const checked = !!state.logi[key];
+      if(checked) li.classList.add('done');
+      const id = 'logi-' + key;
+      li.innerHTML = `<input type="checkbox" id="${id}" ${checked?'checked':''}><label for="${id}">${LOGI_LABELS[key]}</label>`;
+      li.querySelector('input').addEventListener('change', e=>{
+        state.logi[key] = e.target.checked;
+        li.classList.toggle('done', e.target.checked);
+        saveState();
+      });
+      ul.appendChild(li);
+    });
+  }
+
+  function renderGifts(){
+    const tbody = document.getElementById('giftBody');
+    tbody.innerHTML = '';
+    state.gifts.forEach((g, i)=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="gcheck"><input type="checkbox" ${g.done?'checked':''}></td>
+        <td><input type="text" placeholder="Name" value="${escapeAttr(g.person)}"></td>
+        <td><input type="text" placeholder="Gift idea" value="${escapeAttr(g.idea)}"></td>
+        <td><button class="rm" title="Remove">×</button></td>
+      `;
+      const [chk, person, idea] = tr.querySelectorAll('input');
+      chk.addEventListener('change', e=>{ g.done = e.target.checked; saveState(); });
+      person.addEventListener('input', e=>{ g.person = e.target.value; saveState(); });
+      idea.addEventListener('input', e=>{ g.idea = e.target.value; saveState(); });
+      tr.querySelector('.rm').addEventListener('click', ()=>{
+        state.gifts.splice(i,1);
+        renderGifts();
+        saveState();
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  function escapeAttr(s){
+    return (s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+  }
+
+  let activeTab = PACK_TABS[0].key;
+
+  function renderPacking(){
+    const tabsEl = document.getElementById('packTabs');
+    const panelsEl = document.getElementById('packPanels');
+    tabsEl.innerHTML = '';
+    panelsEl.innerHTML = '';
+
+    PACK_TABS.forEach(t=>{
+      const items = state.pack[t.key] || [];
+      const doneCount = items.filter(i=>i.done).length;
+
+      const btn = document.createElement('button');
+      btn.className = 'tab' + (t.key === activeTab ? ' active' : '');
+      btn.innerHTML = `${t.label} <span class="count">${doneCount}/${items.length}</span>`;
+      btn.addEventListener('click', ()=>{ activeTab = t.key; renderPacking(); });
+      tabsEl.appendChild(btn);
+
+      const panel = document.createElement('div');
+      panel.className = 'pack-panel' + (t.key === activeTab ? ' active' : '');
+      const ul = document.createElement('ul');
+      ul.className = 'check-list';
+      items.forEach((item, idx)=>{
+        const li = document.createElement('li');
+        if(item.done) li.classList.add('done');
+        const id = 'pack-' + t.key + '-' + idx;
+        li.innerHTML = `<input type="checkbox" id="${id}" ${item.done?'checked':''}><label for="${id}">${item.label}</label>`;
+        li.querySelector('input').addEventListener('change', e=>{
+          item.done = e.target.checked;
+          li.classList.toggle('done', e.target.checked);
+          updateProgress();
+          renderPacking();
+          saveState();
+        });
+        ul.appendChild(li);
+      });
+      panel.appendChild(ul);
+      panelsEl.appendChild(panel);
+    });
+
+    updateProgress();
+  }
+
+  function updateProgress(){
+    let total = 0, done = 0;
+    Object.values(state.pack).forEach(items=>{
+      total += items.length;
+      done += items.filter(i=>i.done).length;
+    });
+    document.getElementById('progressText').textContent = `${done} of ${total} packed`;
+    document.getElementById('progressFill').style.width = total ? (done/total*100) + '%' : '0%';
+  }
+
+  function render(){
+    renderCountdowns();
+    renderLogi();
+    renderGifts();
+    renderPacking();
+  }
+
+  document.getElementById('departureInput').addEventListener('change', e=>{
+    state.departureDate = e.target.value;
+    renderCountdowns();
+    saveState();
+  });
+
+  document.getElementById('addGift').addEventListener('click', ()=>{
+    state.gifts.push({ person:'', idea:'', done:false });
+    renderGifts();
+    saveState();
+  });
+
+  loadState();
+})();
+</script>
+
+</body>
+</html>
